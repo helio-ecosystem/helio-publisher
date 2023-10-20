@@ -65,8 +65,13 @@ public class Link extends AbstractEndpoint {
 	public String getData(Request request) throws EndpointRemoteDataException{
 		try {
 			String arguments = request.queryString();
-			URL url = new URL(this.url+"?"+arguments);
-
+			boolean hasArguments = this.url.contains("?");
+			URL url = new URL(this.url);
+			if(arguments!=null) {
+				url = new URL(this.url+"?"+arguments);
+				if(hasArguments)
+					url = new URL(this.url+"&"+arguments);
+			}
 			URLConnection urlConnection = url.openConnection();
 			String output = new String(urlConnection.getInputStream().readAllBytes());
 
