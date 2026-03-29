@@ -12,7 +12,7 @@ public class Publisher  {
 	public static final String DEMON_ARGUMENT = "-d";
 	public static int CONFIG_PORT = 4567;
 	public static int PUBLISHER_PORT = 9000;
-	public static String VERSION = "v4.0.0";
+	public static String VERSION = "v4.0.1";
 
 	public static void main(String[] args) {
 		// Configuration
